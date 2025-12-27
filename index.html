@@ -26,7 +26,74 @@
     <!--==================== Animate on scroll CDN ====================-->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     
-
+    <style>
+        /* ===== SKILLS CARD DESIGN ===== */
+        
+        .skills-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+          gap: 30px;
+          margin-top: 40px;
+        }
+        
+        .skill-card {
+          background: #ffffff;
+          padding: 25px;
+          border-radius: 14px;
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .skill-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .skill-card h3 {
+          font-size: 1.2rem;
+          font-weight: 600;
+          margin-bottom: 15px;
+          color: #111827;
+        }
+        
+        .skill-card ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+        
+        .skill-card li {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 12px;
+          font-size: 0.95rem;
+          color: #374151;
+        }
+        
+        .tag {
+          padding: 5px 12px;
+          border-radius: 999px;
+          font-size: 0.75rem;
+          font-weight: 600;
+        }
+        
+        .tag.basic {
+          background: #e0e7ff;
+          color: #3730a3;
+        }
+        
+        .tag.intermediate {
+          background: #fde68a;
+          color: #92400e;
+        }
+        
+        .tag.advanced {
+          background: #bbf7d0;
+          color: #065f46;
+        }
+        </style>
+        
 </head>
 
 <body>
