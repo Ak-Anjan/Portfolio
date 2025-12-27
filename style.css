@@ -1,0 +1,63 @@
+/* ================= SKILLS MATRIX ================= */
+
+.skills__matrix {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.skill-card {
+    background: #111827;
+    border-radius: 12px;
+    padding: 25px;
+    color: #ffffff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+}
+
+.skill-card h3 {
+    color: #38bdf8;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.skill-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-card li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+/* LEVEL BADGES */
+.level {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.level.beginner {
+    background: #fde68a;
+    color: #92400e;
+}
+
+.level.intermediate {
+    background: #bfdbfe;
+    color: #1e3a8a;
+}
+
+.level.advanced {
+    background: #bbf7d0;
+    color: #065f46;
+}
