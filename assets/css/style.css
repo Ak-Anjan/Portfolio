@@ -1418,9 +1418,8 @@ margin-top:20px;
 }
 
 .experience__card.active .experience__body{
-
-max-height:700px;
-
+    max-height:1000px;
+    padding-top:20px;
 }
 
 .experience__card.active .experience__arrow{

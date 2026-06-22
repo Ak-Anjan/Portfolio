@@ -80,19 +80,22 @@ modalCloses.forEach((modalClose) => {
     })
 })
 /*==================== PORTFOLIO SWIPER  ====================*/
-let swiperPortfolio = new Swiper('.portfolio__container', {
-    cssMode: true,
-    loop: true,
+if (typeof Swiper !== "undefined") {
+    let swiperPortfolio = new Swiper('.portfolio__container', {
+        cssMode: true,
+        loop: true,
 
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-});
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+}
 
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
@@ -135,17 +138,16 @@ window.addEventListener('scroll', scrollUp)
 
 /*==================== EXPERIENCE ====================*/
 
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", function () {
 
-    const experienceCards = document.querySelectorAll(".experience__card");
+    const card = document.querySelector(".experience__card");
 
-    console.log("Experience Cards:", experienceCards.length);
+    if (!card) return;
 
-    experienceCards.forEach((card) => {
-        card.addEventListener("click", () => {
-            console.log("Clicked");
-            card.classList.toggle("active");
-        });
+    card.addEventListener("click", function () {
+
+        this.classList.toggle("active");
+
     });
 
 });
