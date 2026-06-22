@@ -133,3 +133,16 @@ function scrollUp(){
 window.addEventListener('scroll', scrollUp)
 
 
+/*==================== EXPERIENCE ====================*/
+
+const experienceCards=document.querySelectorAll('.experience__card');
+
+experienceCards.forEach(card=>{
+
+card.addEventListener('click',()=>{
+
+card.classList.toggle('active');
+
+});
+
+});    
