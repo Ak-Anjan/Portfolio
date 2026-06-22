@@ -135,14 +135,17 @@ window.addEventListener('scroll', scrollUp)
 
 /*==================== EXPERIENCE ====================*/
 
-const experienceCards=document.querySelectorAll('.experience__card');
+document.addEventListener("DOMContentLoaded", () => {
 
-experienceCards.forEach(card=>{
+    const experienceCards = document.querySelectorAll(".experience__card");
 
-card.addEventListener('click',()=>{
+    console.log("Experience Cards:", experienceCards.length);
 
-card.classList.toggle('active');
+    experienceCards.forEach((card) => {
+        card.addEventListener("click", () => {
+            console.log("Clicked");
+            card.classList.toggle("active");
+        });
+    });
 
 });
-
-});    
