@@ -12556,3 +12556,1010 @@ h4 {
     width: 100%;
   }
 }
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+  z-index: 100;
+}
+
+
+/* =========================
+   TOP LEFT MENU
+========================= */
+
+.navbar-menu {
+  position: absolute;
+  top: 25px;
+  left: 40px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.navbar-menu a {
+  color: #9ee7c5;
+
+  text-decoration: none;
+
+  font-family: monospace;
+
+  font-size: 24px;
+
+  font-weight: 500;
+
+  line-height: 1.2;
+
+  transition: all 0.2s ease;
+}
+
+.navbar-menu a:hover {
+  color: #00ff88;
+
+  text-shadow:
+    0 0 5px #00ff88,
+    0 0 10px #00ff88;
+
+  transform: translateX(5px);
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+  position: absolute;
+
+  top: 35px;
+  left: 6%;
+
+  color: white;
+
+  font-size: 24px;
+
+  font-weight: bold;
+
+  font-family: monospace;
+}
+
+.logo span {
+  color: #00ff88;
+}
+
+
+/* =========================
+   TOP RIGHT ACTIONS
+========================= */
+
+.navbar-actions {
+  position: absolute;
+
+  top: 30px;
+  right: 6%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+}
+
+
+/* =========================
+   LINKEDIN / CONTACT
+========================= */
+
+.nav-social {
+  width: 52px;
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(0, 255, 136, 0.4);
+
+  color: #00ff88;
+
+  text-decoration: none;
+
+  font-family: monospace;
+
+  font-size: 20px;
+
+  transition: all 0.2s ease;
+}
+
+.nav-social:hover {
+  background: rgba(0, 255, 136, 0.08);
+
+  border-color: #00ff88;
+
+  box-shadow:
+    0 0 10px rgba(0, 255, 136, 0.3),
+    0 0 20px rgba(0, 255, 136, 0.15);
+}
+
+/* =========================================================
+   CLEAN CYBER SECURITY PORTFOLIO
+   NAVBAR + HERO
+========================================================= */
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+  position: relative;
+  width: 100%;
+  height: 115px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 5%;
+
+  z-index: 100;
+}
+
+
+/* =========================================================
+   LEFT NAVIGATION
+========================================================= */
+
+.navbar-menu {
+  position: absolute;
+
+  top: 26px;
+  left: 4%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 4px;
+
+  padding: 6px;
+
+  background: rgba(2, 14, 11, 0.72);
+
+  border: 1px solid rgba(0, 255, 136, 0.14);
+
+  border-radius: 10px;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+
+/* NAV LINKS */
+
+.navbar-menu a {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  padding: 10px 12px;
+
+  color: rgba(190, 235, 215, 0.78);
+
+  text-decoration: none;
+
+  font-family: monospace;
+
+  font-size: 15px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.4px;
+
+  white-space: nowrap;
+
+  border-radius: 6px;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+/* NAV HOVER */
+
+.navbar-menu a:hover {
+  color: #00ff88;
+
+  background: rgba(0, 255, 136, 0.07);
+
+  transform: translateY(-1px);
+}
+
+
+/* SMALL UNDERLINE */
+
+.navbar-menu a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 12px;
+  right: 12px;
+
+  bottom: 5px;
+
+  height: 1px;
+
+  background: #00ff88;
+
+  transform: scaleX(0);
+
+  transform-origin: center;
+
+  transition: transform 0.25s ease;
+}
+
+.navbar-menu a:hover::after {
+  transform: scaleX(1);
+}
+
+
+/* =========================================================
+   CENTER LOGO
+========================================================= */
+
+.logo {
+  position: absolute;
+
+  top: 29px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  padding: 8px 15px;
+
+  color: #ffffff;
+
+  font-family: monospace;
+
+  font-size: 22px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  background: rgba(2, 14, 11, 0.58);
+
+  border: 1px solid rgba(0, 255, 136, 0.15);
+
+  border-radius: 8px;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.18);
+}
+
+.logo span {
+  color: #00ff88;
+}
+
+
+/* =========================================================
+   RIGHT NAVIGATION
+========================================================= */
+
+.navbar-actions {
+  position: absolute;
+
+  top: 29px;
+  right: 4%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+}
+
+
+/* LINKEDIN + CONTACT */
+
+.nav-social {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #00ff88;
+
+  text-decoration: none;
+
+  font-family: monospace;
+
+  font-size: 17px;
+
+  background: rgba(2, 14, 11, 0.65);
+
+  border: 1px solid rgba(0, 255, 136, 0.2);
+
+  border-radius: 8px;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+/* SOCIAL HOVER */
+
+.nav-social:hover {
+  color: #ffffff;
+
+  background: rgba(0, 255, 136, 0.08);
+
+  border-color: rgba(0, 255, 136, 0.65);
+
+  box-shadow:
+    0 0 18px rgba(0, 255, 136, 0.15);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  position: relative;
+
+  width: 100%;
+
+  min-height: calc(100vh - 115px);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 50px;
+
+  padding: 40px 5% 80px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero-content {
+  position: relative;
+
+  z-index: 10;
+
+  width: 52%;
+
+  max-width: 720px;
+}
+
+
+/* =========================================================
+   SYSTEM STATUS
+========================================================= */
+
+.status {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 11px 17px;
+
+  margin-bottom: 28px;
+
+  color: #00ff88;
+
+  font-family: monospace;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  letter-spacing: 2px;
+
+  background: rgba(2, 18, 13, 0.62);
+
+  border: 1px solid rgba(0, 255, 136, 0.2);
+
+  border-radius: 7px;
+
+  backdrop-filter: blur(10px);
+}
+
+
+/* STATUS DOT */
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #00ff88;
+
+  box-shadow:
+    0 0 8px #00ff88,
+    0 0 16px rgba(0, 255, 136, 0.5);
+
+  animation: statusPulse 2s infinite;
+}
+
+
+@keyframes statusPulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
+}
+
+
+/* =========================================================
+   TERMINAL INITIALIZING TEXT
+========================================================= */
+
+.terminal-line {
+  margin: 0 0 20px;
+
+  color: rgba(190, 235, 215, 0.65);
+
+  font-family: monospace;
+
+  font-size: 17px;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   NAME
+========================================================= */
+
+.hero h1 {
+  margin: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  color: #ffffff;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: clamp(70px, 8vw, 115px);
+
+  font-weight: 800;
+
+  line-height: 0.9;
+
+  letter-spacing: -4px;
+
+  text-transform: uppercase;
+}
+
+
+/* GREEN NAME */
+
+.hero h1 span {
+  color: #00ff88;
+
+  text-shadow:
+    0 0 25px rgba(0, 255, 136, 0.15);
+}
+
+
+/* =========================================================
+   ROLE
+========================================================= */
+
+.hero h2 {
+  margin: 34px 0 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  color: #ffffff;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 28px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+.hero h2 strong {
+  color: #00ff88;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.description {
+  margin: 0;
+
+  max-width: 680px;
+
+  color: rgba(200, 235, 220, 0.72);
+
+  font-family: monospace;
+
+  font-size: 18px;
+
+  line-height: 1.7;
+
+  letter-spacing: 0.8px;
+
+  white-space: normal;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
+
+.hero-buttons {
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  margin-top: 38px;
+}
+
+
+/* PRIMARY BUTTON */
+
+.primary-btn {
+  position: relative;
+
+  min-width: 190px;
+
+  padding: 14px 24px;
+
+  color: #00140b;
+
+  background: #00ff88;
+
+  border: 1px solid #00ff88;
+
+  border-radius: 6px;
+
+  font-family: monospace;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.primary-btn:hover {
+  background: #19ff9a;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 25px rgba(0, 255, 136, 0.2);
+}
+
+
+/* SECONDARY BUTTON */
+
+.secondary-btn {
+  min-width: 160px;
+
+  padding: 14px 24px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: rgba(210, 240, 225, 0.75);
+
+  background: rgba(2, 18, 13, 0.5);
+
+  border: 1px solid rgba(0, 255, 136, 0.2);
+
+  border-radius: 6px;
+
+  font-family: monospace;
+
+  font-size: 15px;
+
+  letter-spacing: 1px;
+
+  text-decoration: none;
+
+  backdrop-filter: blur(8px);
+
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.secondary-btn:hover {
+  color: #00ff88;
+
+  background: rgba(0, 255, 136, 0.06);
+
+  border-color: rgba(0, 255, 136, 0.55);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   NETWORK VISUAL
+========================================================= */
+
+.hero-visual {
+  position: relative;
+
+  width: 48%;
+
+  height: 620px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  z-index: 3;
+}
+
+
+/* =========================================================
+   TERMINAL
+========================================================= */
+
+.terminal-wrapper {
+  width: 100%;
+
+  margin-top: 35px;
+
+  animation: terminalAppear 0.45s ease;
+}
+
+
+@keyframes terminalAppear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ACCESS MESSAGE */
+
+.terminal-access-granted {
+  margin-bottom: 14px;
+
+  padding: 15px 18px;
+
+  background: rgba(2, 18, 13, 0.65);
+
+  border: 1px solid rgba(0, 255, 136, 0.18);
+
+  border-radius: 8px;
+
+  backdrop-filter: blur(10px);
+}
+
+
+.access-message {
+  color: #00ff88;
+
+  font-family: monospace;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+
+.access-message span {
+  margin-right: 8px;
+}
+
+
+.access-subtitle {
+  margin-top: 6px;
+
+  color: rgba(190, 235, 215, 0.55);
+
+  font-family: monospace;
+
+  font-size: 12px;
+
+  letter-spacing: 1px;
+}
+
+
+/* TERMINAL HINT */
+
+.terminal-hint {
+  margin-top: 12px;
+
+  color: rgba(190, 235, 215, 0.5);
+
+  font-family: monospace;
+
+  font-size: 12px;
+
+  letter-spacing: 0.7px;
+}
+
+.terminal-hint span {
+  color: #00ff88;
+
+  margin-right: 5px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .navbar {
+    height: auto;
+
+    min-height: 150px;
+
+    padding: 20px;
+  }
+
+
+  .navbar-menu {
+    position: relative;
+
+    top: auto;
+    left: auto;
+
+    width: calc(100% - 40px);
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 4px;
+
+    margin-top: 70px;
+  }
+
+
+  .navbar-menu a {
+    justify-content: center;
+
+    padding: 9px 5px;
+
+    font-size: 13px;
+  }
+
+
+  .logo {
+    top: 20px;
+
+    left: 50%;
+  }
+
+
+  .navbar-actions {
+    top: 20px;
+
+    right: 20px;
+  }
+
+
+  .nav-social {
+    width: 38px;
+    height: 38px;
+
+    font-size: 15px;
+  }
+
+
+  .hero {
+    min-height: auto;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    padding: 60px 6% 80px;
+  }
+
+
+  .hero-content {
+    width: 100%;
+
+    max-width: 100%;
+  }
+
+
+  .hero h1 {
+    font-size: clamp(60px, 14vw, 90px);
+  }
+
+
+  .hero h2 {
+    font-size: 22px;
+
+    flex-wrap: wrap;
+  }
+
+
+  .description {
+    font-size: 16px;
+  }
+
+
+  .hero-visual {
+    width: 100%;
+
+    height: 450px;
+
+    margin-top: 20px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .navbar {
+    padding: 15px;
+  }
+
+
+  .navbar-menu {
+    left: 15px;
+
+    width: calc(100% - 30px);
+
+    grid-template-columns: repeat(2, 1fr);
+
+    margin-top: 65px;
+  }
+
+
+  .navbar-menu a {
+    font-size: 12px;
+  }
+
+
+  .navbar-actions {
+    right: 15px;
+  }
+
+
+  .hero {
+    padding: 50px 6% 60px;
+  }
+
+
+  .status {
+    font-size: 12px;
+
+    padding: 9px 13px;
+  }
+
+
+  .terminal-line {
+    font-size: 14px;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+  }
+
+
+  .hero h1 {
+    font-size: 62px;
+
+    letter-spacing: -3px;
+  }
+
+
+  .hero h2 {
+    font-size: 19px;
+
+    gap: 10px;
+  }
+
+
+  .description {
+    font-size: 14px;
+  }
+
+
+  .hero-buttons {
+    width: 100%;
+
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+  }
+
+
+  .hero-visual {
+    height: 350px;
+  }
+
+}
