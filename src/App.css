@@ -13895,3 +13895,34 @@ h4 {
   }
 
 }
+.logo {
+  position: absolute;
+
+  top: 32px;
+  right: 145px;
+  left: auto;
+
+  padding: 7px 14px;
+
+  color: #ffffff;
+
+  font-family: monospace;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  background: rgba(2, 14, 11, 0.65);
+
+  border: 1px solid rgba(0, 255, 136, 0.18);
+
+  border-radius: 8px;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  z-index: 105;
+}
+
+.logo span {
+  color: #00ff88;
+}
