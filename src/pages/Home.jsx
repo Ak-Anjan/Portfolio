@@ -11,17 +11,67 @@ function Home() {
 
       <HackerBackground />
 
-      {/* HEADER */}
+      {/* =========================
+          HEADER
+      ========================= */}
 
       <nav className="navbar">
 
-        <div className="logo">
-          <span>&lt;</span>
-          AK
-          <span>/&gt;</span>
+        {/* =========================
+            TOP LEFT MENU
+        ========================= */}
+
+        <div className="navbar-menu">
+
+          <a href="/about">
+            about
+          </a>
+
+          <a href="/skills">
+            skills
+          </a>
+
+          <a href="/projects">
+            projects
+          </a>
+
+          <a href="/experience">
+            experience
+          </a>
+
+          <a href="/certifications">
+            certifications
+          </a>
+
+          <a href="/resume">
+            resume
+          </a>
+
         </div>
 
+
+        {/* =========================
+            LOGO
+        ========================= */}
+
+        <div className="logo">
+
+          <span>&lt;</span>
+
+          AK
+
+          <span>/&gt;</span>
+
+        </div>
+
+
+        {/* =========================
+            TOP RIGHT ACTIONS
+        ========================= */}
+
         <div className="navbar-actions">
+
+          {/* LINKEDIN */}
 
           <a
             href="https://www.linkedin.com/"
@@ -32,6 +82,9 @@ function Home() {
           >
             in
           </a>
+
+
+          {/* CONTACT */}
 
           <a
             href="/contact"
@@ -46,78 +99,123 @@ function Home() {
       </nav>
 
 
-      {/* HERO */}
+      {/* =========================
+          HERO
+      ========================= */}
 
       <section className="hero">
 
         <div className="hero-content">
 
-          {/* SYSTEM STATUS */}
+          {/* =========================
+              SYSTEM STATUS
+          ========================= */}
 
           <div className="status">
+
             <span className="status-dot"></span>
+
             SYSTEM ONLINE
+
           </div>
 
 
-          {/* INITIALIZING MESSAGE */}
+          {/* =========================
+              INITIALIZING MESSAGE
+          ========================= */}
 
           <p className="terminal-line">
+
             &gt; initializing_secure_connection...
+
           </p>
 
 
-          {/* NAME */}
+          {/* =========================
+              NAME
+          ========================= */}
 
           <h1>
+
             ANJAN
+
             <span>
               KUMAR S
             </span>
+
           </h1>
 
 
-          {/* ROLE */}
+          {/* =========================
+              ROLE
+          ========================= */}
 
           <h2>
+
             JR{' '}
+
             <strong>
               SECURITYENGINEER
             </strong>
+
           </h2>
 
 
-          {/* DESCRIPTION */}
+          {/* =========================
+              DESCRIPTION
+          ========================= */}
 
           <p className="description">
+
             Network Security • Linux • Firewalls • Cloud Security
+
           </p>
 
 
-          {/* TERMINAL */}
+          {/* =========================
+              AUTHENTICATED TERMINAL
+          ========================= */}
 
           {authenticated && (
 
             <div className="terminal-wrapper">
 
+              {/* ACCESS GRANTED */}
+
               <div className="terminal-access-granted">
 
                 <div className="access-message">
-                  <span>[✓]</span>
+
+                  <span>
+                    [✓]
+                  </span>
+
                   ACCESS GRANTED
+
                 </div>
 
+
                 <div className="access-subtitle">
+
                   SECURE TERMINAL INITIALIZED
+
                 </div>
 
               </div>
 
+
+              {/* TERMINAL */}
+
               <Terminal />
+
+
+              {/* TERMINAL HINT */}
 
               <div className="terminal-hint">
 
-                <span>[!]</span>
+                <span>
+                  [!]
+                </span>
 
                 TYPE <strong>"help"</strong> TO VIEW AVAILABLE COMMANDS
 
@@ -128,7 +226,9 @@ function Home() {
           )}
 
 
-          {/* ENTER SYSTEM */}
+          {/* =========================
+              ENTER SYSTEM BUTTON
+          ========================= */}
 
           {!authenticated && (
 
@@ -140,6 +240,7 @@ function Home() {
               >
                 ENTER SYSTEM
               </button>
+
 
               <a
                 href="/contact"
@@ -155,7 +256,9 @@ function Home() {
         </div>
 
 
-        {/* 3D NETWORK */}
+        {/* =========================
+            3D NETWORK
+        ========================= */}
 
         <div className="hero-visual">
 
