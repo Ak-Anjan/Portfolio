@@ -1,3 +1,4 @@
+
 let cache = {
   events: [],
   stats: {
@@ -10,40 +11,122 @@ let cache = {
 };
 
 let lastFetch = 0;
+let pendingFetch = null;
 
 const CACHE_TIME = 60 * 1000;
+const REQUEST_TIMEOUT = 15000;
 
 const THREATFOX_URL =
   "https://threatfox-api.abuse.ch/api/v1/";
 
-async function fetchThreatFox() {
-  const AUTH_KEY = process.env.THREATFOX_AUTH_KEY;
-
-  if (!AUTH_KEY) {
-    throw new Error("THREATFOX_AUTH_KEY is missing");
-  }
-
-  const response = await fetch(THREATFOX_URL, {
-    method: "POST",
+const jsonResponse = (data, status = 200) =>
+  new Response(JSON.stringify(data), {
+    status,
     headers: {
-      "Auth-Key": AUTH_KEY,
       "Content-Type": "application/json",
+      "Cache-Control": "no-store",
     },
-    body: JSON.stringify({
-      query: "get_iocs",
-      days: 1,
-    }),
   });
 
-  if (!response.ok) {
-    throw new Error(`ThreatFox HTTP ${response.status}`);
+async function fetchThreatFox() {
+  const AUTH_KEY =
+    process.env.THREATFOX_AUTH_KEY?.trim();
+
+  if (!AUTH_KEY) {
+    throw new Error(
+      "THREATFOX_AUTH_KEY is missing"
+    );
   }
 
-  const result = await response.json();
+  const controller = new AbortController();
+
+  const timeout = setTimeout(
+    () => controller.abort(),
+    REQUEST_TIMEOUT
+  );
+
+  let response;
+
+  try {
+    response = await fetch(THREATFOX_URL, {
+      method: "POST",
+      headers: {
+        "Auth-Key": AUTH_KEY,
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "User-Agent": "CyberPortfolio-CTI/1.0",
+      },
+      body: JSON.stringify({
+        query: "get_iocs",
+        days: 1,
+      }),
+      signal: controller.signal,
+    });
+  } catch (error) {
+    if (error.name === "AbortError") {
+      throw new Error(
+        "ThreatFox API request timed out"
+      );
+    }
+
+    throw new Error(
+      `ThreatFox connection failed: ${error.message}`
+    );
+  } finally {
+    clearTimeout(timeout);
+  }
+
+  if (!response.ok) {
+    const errorBody = await response.text();
+
+    // Avoid logging any possible secret values.
+    const safeBody = errorBody
+      .replaceAll(AUTH_KEY, "[REDACTED]")
+      .slice(0, 500);
+
+    console.error("ThreatFox API error:", {
+      status: response.status,
+      body: safeBody,
+    });
+
+    if (response.status === 401) {
+      throw new Error(
+        "ThreatFox HTTP 401: Authentication failed"
+      );
+    }
+
+    if (response.status === 403) {
+      throw new Error(
+        "ThreatFox HTTP 403: Access forbidden. Check API key and access permissions."
+      );
+    }
+
+    if (response.status === 429) {
+      throw new Error(
+        "ThreatFox HTTP 429: Rate limit exceeded"
+      );
+    }
+
+    throw new Error(
+      `ThreatFox HTTP ${response.status}`
+    );
+  }
+
+  let result;
+
+  try {
+    result = await response.json();
+  } catch {
+    throw new Error(
+      "ThreatFox returned invalid JSON"
+    );
+  }
 
   if (result.query_status !== "ok") {
     throw new Error(
-      `ThreatFox query failed: ${result.query_status}`
+      `ThreatFox query failed: ${
+        result.query_status || "unknown"
+      }`
     );
   }
 
@@ -52,10 +135,15 @@ async function fetchThreatFox() {
     : [];
 
   data.sort((a, b) => {
-    const dateA = new Date(a.first_seen || 0);
-    const dateB = new Date(b.first_seen || 0);
+    const dateA = new Date(
+      a.first_seen || 0
+    ).getTime();
 
-    return dateB.getTime() - dateA.getTime();
+    const dateB = new Date(
+      b.first_seen || 0
+    ).getTime();
+
+    return dateB - dateA;
   });
 
   const malwareCount = data.filter(
@@ -75,60 +163,59 @@ async function fetchThreatFox() {
       Number(item.confidence_level || 0) >= 80
   ).length;
 
-  const events = data.slice(0, 100).map((item) => ({
-    id: String(item.id || ""),
+  const events = data.slice(0, 100).map(
+    (item) => ({
+      id: String(item.id || ""),
+      ioc: item.ioc || "UNKNOWN",
 
-    ioc: item.ioc || "UNKNOWN",
+      threatType:
+        item.threat_type || "unknown",
 
-    threatType:
-      item.threat_type || "unknown",
+      threatTypeDescription:
+        item.threat_type_desc ||
+        "Threat intelligence event",
 
-    threatTypeDescription:
-      item.threat_type_desc ||
-      "Threat intelligence event",
+      iocType:
+        item.ioc_type || "unknown",
 
-    iocType:
-      item.ioc_type || "unknown",
+      iocTypeDescription:
+        item.ioc_type_desc || "",
 
-    iocTypeDescription:
-      item.ioc_type_desc || "",
+      malware:
+        item.malware_printable ||
+        item.malware ||
+        "Unknown",
 
-    malware:
-      item.malware_printable ||
-      item.malware ||
-      "Unknown",
+      confidence: Number(
+        item.confidence_level || 0
+      ),
 
-    confidence:
-      Number(item.confidence_level || 0),
+      firstSeen:
+        item.first_seen || null,
 
-    firstSeen:
-      item.first_seen || null,
+      lastSeen:
+        item.last_seen || null,
 
-    lastSeen:
-      item.last_seen || null,
+      reporter:
+        item.reporter || "unknown",
 
-    reporter:
-      item.reporter || "unknown",
-
-    tags:
-      Array.isArray(item.tags)
+      tags: Array.isArray(item.tags)
         ? item.tags
         : [],
 
-    reference:
-      item.reference || null,
-  }));
+      reference:
+        item.reference || null,
+    })
+  );
 
   cache = {
     events,
-
     stats: {
       total: data.length,
       malware: malwareCount,
       c2: c2Count,
       highConfidence,
     },
-
     updatedAt: new Date().toISOString(),
   };
 
@@ -145,41 +232,53 @@ export default async function handler() {
       !cache.updatedAt ||
       now - lastFetch > CACHE_TIME
     ) {
-      await fetchThreatFox();
+      if (!pendingFetch) {
+        pendingFetch = fetchThreatFox()
+          .finally(() => {
+            pendingFetch = null;
+          });
+      }
+
+      await pendingFetch;
     }
 
-    return new Response(
-      JSON.stringify({
-        success: true,
-        source: "ThreatFox / abuse.ch",
-        updatedAt: cache.updatedAt,
-        stats: cache.stats,
-        events: cache.events,
-      }),
-      {
-        status: 200,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    return jsonResponse({
+      success: true,
+      source: "ThreatFox / abuse.ch",
+      updatedAt: cache.updatedAt,
+      stats: cache.stats,
+      events: cache.events,
+    });
   } catch (error) {
     console.error(
       "ThreatFox error:",
       error.message
     );
 
-    return new Response(
-      JSON.stringify({
-        success: false,
-        error: error.message,
-      }),
+    // Return cached data if available.
+    if (cache.updatedAt) {
+      return jsonResponse({
+        success: true,
+        source: "ThreatFox / abuse.ch",
+        cached: true,
+        stale: true,
+        warning: error.message,
+        updatedAt: cache.updatedAt,
+        stats: cache.stats,
+        events: cache.events,
+      });
+    }
+
+    return jsonResponse(
       {
-        status: 500,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
+        success: false,
+        source: "ThreatFox / abuse.ch",
+        error: error.message,
+        updatedAt: null,
+        stats: cache.stats,
+        events: [],
+      },
+      503
     );
   }
 }
