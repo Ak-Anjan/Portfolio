@@ -31,6 +31,10 @@ const jsonResponse = (data, status = 200) =>
 async function fetchThreatFox() {
   const AUTH_KEY =
     process.env.THREATFOX_AUTH_KEY?.trim();
+    console.log("CTI diagnostic:", {
+  keyPresent: Boolean(AUTH_KEY),
+  keyLength: AUTH_KEY?.length ?? 0,
+});
 
   if (!AUTH_KEY) {
     throw new Error(
