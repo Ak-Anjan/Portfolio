@@ -95,6 +95,17 @@ function Resume() {
                   September 2026 – Present
                 </div>
               </div>
+              <p className="resume-job-description">
+                Work on network security, VAPT, vulnerability assessment, and security auditing to identify security
+weaknesses and improve system protection.
+              </p>
+
+              <p className="resume-job-description">
+                Implemented IPS controls, firewall policies, country-based
+                IP blocking, and network access controls; integrated Wazuh,
+                Suricata, and ELK Stack for centralized monitoring and alert
+                correlation.
+              </p>
 
               <p className="resume-job-type">
                 Bengaluru, India • Full-time
