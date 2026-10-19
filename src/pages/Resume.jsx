@@ -101,10 +101,28 @@ weaknesses and improve system protection.
               </p>
 
               <p className="resume-job-description">
-                Implemented IPS controls, firewall policies, country-based
-                IP blocking, and network access controls; integrated Wazuh,
-                Suricata, and ELK Stack for centralized monitoring and alert
-                correlation.
+                Monitor and analyze security logs and network traffic using Wazuh, Wireshark, and tcpdump to detect
+suspicious activities and investigate security alerts
+              </p>
+
+               <p className="resume-job-description">
+                 Perform vulnerability scans using Greenbone/OpenVAS, Nmap, and Nessus to identify open ports,
+outdated services, and security issues. Prepare reports with suitable mitigation steps
+              </p>
+
+              <p className="resume-job-description">
+                Configure, manage, and troubleshoot pfSense, OPNsense, and Sophos Firewalls, including firewall rules,
+access controls, network traffic, and connectivity issues
+              </p>
+
+               <p className="resume-job-description">
+                Use Linux, Python, and Bash scripting for security tasks, log analysis, system troubleshooting, and
+automation of routine activities
+              </p>
+
+              <p className="resume-job-description">
+                Support security audits and incident investigations by reviewing system configurations, analyzing findings,
+identifying root causes, and documenting remediation steps to reduce security risks
               </p>
 
               <p className="resume-job-type">
