@@ -142,7 +142,9 @@ identifying root causes, and documenting remediation steps to reduce security ri
                   March 2026 – August 2026
                 </div>
               </div>
-
+              <p className="resume-job-type">
+                Bengaluru, India • Full-time
+              </p>
               <p className="resume-job-description">
                 Configured and managed Suricata and Snort IDS/IPS across
                 pfSense, OPNsense, and Linux; developed and tuned custom
