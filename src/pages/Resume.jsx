@@ -95,6 +95,9 @@ function Resume() {
                   September 2026 – Present
                 </div>
               </div>
+               <p className="resume-job-type">
+                Bengaluru, India • Full-time
+              </p>
               <p className="resume-job-description">
                 Work on network security, VAPT, vulnerability assessment, and security auditing to identify security
 weaknesses and improve system protection.
@@ -125,9 +128,7 @@ automation of routine activities
 identifying root causes, and documenting remediation steps to reduce security risks
               </p>
 
-              <p className="resume-job-type">
-                Bengaluru, India • Full-time
-              </p>
+             
             </article>
 
             <article className="resume-job">
