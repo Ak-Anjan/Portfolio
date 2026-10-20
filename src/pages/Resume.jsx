@@ -222,7 +222,7 @@ identifying root causes, and documenting remediation steps to reduce security ri
               <h4>Bachelor of Computer Application (BCA)</h4>
               <p>KLE Society’s Degree College, Nagarbhavi</p>
               <span>2020 – 2023</span>
-              <p>CGPA: 70.73%</p>
+              <p>Percentage: 70.73%</p>
             </div>
           </div>
         </section>
