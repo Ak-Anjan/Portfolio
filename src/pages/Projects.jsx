@@ -25,7 +25,7 @@ function Projects() {
           </p>
 
           <h1>
-            PROJECT<span>S</span>
+            PROJECT<span></span>
           </h1>
 
           <p className="projects-subtitle">
